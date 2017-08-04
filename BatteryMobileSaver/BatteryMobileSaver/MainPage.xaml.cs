@@ -12,11 +12,13 @@ namespace BatteryMobileSaver
         public MainPage()
         {
             InitializeComponent();
+            
         }
+        
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void btn_Clicked(object sender, EventArgs e)
         {
-            this.BackgroundColor = Color.AliceBlue;
+            btn.Text = "chacnge";
         }
     }
 }

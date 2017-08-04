@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BatteryMobileSaver"
              x:Class="BatteryMobileSaver.MainPage">
-
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-    <Button HeightRequest="20" Text="Click Me!" Clicked="Button_Clicked"></Button>
-
+    <StackLayout>
+        <Label Text="Welcome to Xamarin Forms!" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <Entry x:Name="entry" Placeholder="Your name"></Entry>
+        <Button x:Name="btn" Text="Click" Clicked="btn_Clicked" />
+    </StackLayout>
 </ContentPage>

@@ -22272,16 +22272,16 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "c:\\users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\BatteryMobileSaver.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\BatteryMobileSaver.UWP.csproj",
       "projectName": "BatteryMobileSaver.UWP",
-      "projectPath": "c:\\users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\BatteryMobileSaver.UWP.csproj",
-      "projectJsonPath": "c:\\users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\project.json",
+      "projectPath": "C:\\Users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\BatteryMobileSaver.UWP.csproj",
+      "projectJsonPath": "C:\\Users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\project.json",
       "projectStyle": "ProjectJson",
       "frameworks": {
         "uap10.0": {
           "projectReferences": {
-            "c:\\users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.csproj": {
-              "projectPath": "c:\\users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.csproj"
+            "C:\\Users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.csproj": {
+              "projectPath": "C:\\Users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.csproj"
             }
           }
         }

@@ -1,0 +1,10 @@
+/packages
+/BatteryMobileSaver/BatteryMobileSaver.Android/bin
+/BatteryMobileSaver/BatteryMobileSaver.Android/obj
+/BatteryMobileSaver/BatteryMobileSaver.iOS/bin
+/BatteryMobileSaver/BatteryMobileSaver.iOS/obj
+/BatteryMobileSaver/BatteryMobileSaver.UWP/obj
+/BatteryMobileSaver/BatteryMobileSaver.UWP/bin
+/BatteryMobileSaver/BatteryMobileSaver/obj
+/BatteryMobileSaver/BatteryMobileSaver/bin
+/.vs/BatteryMobileSaver/v15/.suo

@@ -14,6 +14,7 @@ namespace BatteryMobileSaver
             InitializeComponent();
 
             MainPage = new BatteryMobileSaver.MainPage();
+            
         }
 
         protected override void OnStart()

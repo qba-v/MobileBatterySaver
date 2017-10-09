@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BatteryMobileSaver.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,6 +31,7 @@ namespace BatteryMobileSaver.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            Xamarin.Forms.DependencyService.Register<IBackgroundApplications>();
         }
 
         /// <summary>

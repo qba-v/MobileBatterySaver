@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using BatteryMobileSaver.Interfaces;
 
 namespace BatteryMobileSaver.iOS
 {
@@ -23,6 +24,7 @@ namespace BatteryMobileSaver.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Xamarin.Forms.DependencyService.Register<IBackgroundApplications>();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

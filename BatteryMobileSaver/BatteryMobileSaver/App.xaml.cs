@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BatteryMobileSaver.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace BatteryMobileSaver
         public App()
         {
             InitializeComponent();
-
+            
             MainPage = new BatteryMobileSaver.MainPage();
             
         }

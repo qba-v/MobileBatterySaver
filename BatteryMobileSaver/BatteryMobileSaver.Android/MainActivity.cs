@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using BatteryMobileSaver.Interfaces;
 
 namespace BatteryMobileSaver.Droid
 {
@@ -20,6 +21,7 @@ namespace BatteryMobileSaver.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            Xamarin.Forms.DependencyService.Register<IBackgroundApplications>();
             LoadApplication(new App());
         }
     }

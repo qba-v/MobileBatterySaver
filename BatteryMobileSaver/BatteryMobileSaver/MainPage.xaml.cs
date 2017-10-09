@@ -1,4 +1,5 @@
 ﻿using Android.Content.PM;
+using BatteryMobileSaver.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,9 @@ namespace BatteryMobileSaver
 
                 list.Add(app);
             }
-            
+
+            DependencyService.Get<IBackgroundApplications>().GetBackgroundApplications();
+
         }
     }
 }

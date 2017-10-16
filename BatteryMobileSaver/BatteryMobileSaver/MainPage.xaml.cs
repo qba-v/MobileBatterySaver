@@ -65,7 +65,7 @@ namespace BatteryMobileSaver
             switch (bat.Status)
             {
                 case BatteryStatus.Charging:
-                    btn.Text += $"Charging. Now your battery is : {bat.RemainingChargePercent} %";
+                    btn.Text += $"Charging. Now your battery is : {bat.RemainingChargePercent} percent";
                     break;
                 case BatteryStatus.Discharging:
                     btn.Text += "Discharging";

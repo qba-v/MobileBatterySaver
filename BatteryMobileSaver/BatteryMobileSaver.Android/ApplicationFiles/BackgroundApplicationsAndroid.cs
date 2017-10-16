@@ -11,7 +11,7 @@ namespace BatteryMobileSaver.Droid.ApplicationFiles
 
         public void GetBackgroundApplications()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

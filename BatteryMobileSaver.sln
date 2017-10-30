@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatteryMobileSaver.Android", "BatteryMobileSaver\BatteryMobileSaver.Android\BatteryMobileSaver.Android.csproj", "{22D54EB0-4730-4B56-9C83-A64F6E66F622}"
 EndProject
@@ -257,5 +257,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0BEC3A80-F3EE-4CEB-A774-30B0339D2959}
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,7 @@
 ﻿using Android.Content.PM;
 using BatteryMobileSaver.Interfaces;
 using BatteryMobileSaver.Models;
+using BatteryMobileSaver.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,15 @@ namespace BatteryMobileSaver
         public MainPage()
         {
             InitializeComponent();
+            this.BindingContext = new MainViewModel()
 
-            var button = new Button
-            {
-                Text = "Click for battery info",
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-            };
+
+            //var button = new Button
+            //{
+            //    Text = "Click for battery info",
+            //    VerticalOptions = LayoutOptions.CenterAndExpand,
+            //    HorizontalOptions = LayoutOptions.CenterAndExpand,
+            //};
             
         }
 
@@ -82,6 +85,11 @@ namespace BatteryMobileSaver
                     break;
             }
             Content = btn;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
         }
     }
 }

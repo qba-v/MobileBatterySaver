@@ -1,4 +1,5 @@
-﻿using BatteryMobileSaver.Interfaces;
+﻿using System;
+using BatteryMobileSaver.Interfaces;
 using BatteryMobileSaver.iOS.ApplicationFiles;
 using BatteryMobileSaver.Models;
 using Plugin.DeviceInfo;
@@ -52,6 +53,16 @@ namespace BatteryMobileSaver.iOS.ApplicationFiles
                         return PowerSource.Other;
                 }
             }
+        }
+
+        public IObservable<int> WhenBatteryPercentageChanged()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IObservable<BatteryStatus> WhenPowerStatusChanged()
+        {
+            throw new NotImplementedException();
         }
         #endregion Properties
     }

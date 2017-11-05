@@ -2,6 +2,7 @@
 using BatteryMobileSaver.Interfaces;
 using BatteryMobileSaver.Models;
 using BatteryMobileSaver.ViewModels;
+using LibDeviceInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,9 @@ namespace BatteryMobileSaver
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new MainViewModel()
-
+            this.BindingContext = new MainViewModel(
+                CrossShared.Battery
+                );
 
             //var button = new Button
             //{

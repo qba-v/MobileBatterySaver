@@ -134,5 +134,15 @@ namespace BatteryMobileSaver.Droid.ApplicationFiles
                 }
             }
         }
+
+        public IObservable<int> WhenBatteryPercentageChanged()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IObservable<Models.BatteryStatus> WhenPowerStatusChanged()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

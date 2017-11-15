@@ -2,7 +2,6 @@
 using BatteryMobileSaver.Interfaces;
 using BatteryMobileSaver.iOS.ApplicationFiles;
 using BatteryMobileSaver.Models;
-using Plugin.DeviceInfo;
 using UIKit;
 
 [assembly: Xamarin.Forms.Dependency(typeof(BatteryStatusiOS))]

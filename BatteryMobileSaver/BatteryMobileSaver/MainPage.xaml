@@ -1,14 +1,116 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BatteryMobileSaver"
              x:Class="BatteryMobileSaver.MainPage">
     
-    <StackLayout>
+    <!--<StackLayout>
         <Label Text="Welcome to Xamarin Forms!" 
                VerticalOptions="Center" 
                HorizontalOptions="Center" />
         <Entry x:Name="entry" Placeholder="Your name"></Entry>
         <Button x:Name="btn" Text="Click" Clicked="btn_Clicked" />
-    </StackLayout>
-</ContentPage>
+    </StackLayout>-->
+
+    <TabbedPage.Children>
+        <!--<NavigationPage Title="Main Data">
+            <x:Arguments>
+                <ContentPage>
+                    <TableView Intent="Data">
+                        <TableRoot>
+                            <TableSection BindingContext="{Binding App}" Title="Application">
+                                <TextCell Text="Version" Detail="{Binding Version}" />
+                                <TextCell Text="Short Version" Detail="{Binding ShortVersion}" />
+                            </TableSection>
+
+                            <TableSection BindingContext="{Binding Hardware}" Title="Device">
+                                <TextCell Text="Device ID" Detail="{Binding DeviceId}" />
+                                <TextCell Text="Manufacturer" Detail="{Binding Manufacturer}" />
+                                <TextCell Text="Model" Detail="{Binding Model}" />
+                                <TextCell Text="Operating System" Detail="{Binding OperatingSystem}" />
+                                <TextCell Text="Operating System Version" Detail="{Binding OperatingSystemVersion}" />
+                                <SwitchCell Text="Simulator" IsEnabled="false" On="{Binding IsSimulator}" />
+                                <SwitchCell Text="Tablet" IsEnabled="false" On="{Binding IsTablet}" />
+                                <TextCell Text="Display Height" Detail="{Binding ScreenHeight}" />
+                                <TextCell Text="Display Width" Detail="{Binding ScreenWidth}" />
+                            </TableSection>
+
+                            <TableSection Title="Battery">
+                                <TextCell Text="Charge Remaining" Detail="{Binding BatteryPercent}" />
+                                <TextCell Text="Status" Detail="{Binding BatteryStatus}" />
+                            </TableSection>
+
+                            <TableSection Title="Network">
+                                <TextCell Text="IP Address" Detail="{Binding IpAddress}" />
+                                <TextCell Text="WiFi SSID" Detail="{Binding WifiSsid}" />
+                                <TextCell Text="Cellular Network Carrier" Detail="{Binding CellularNetworkCarrier}" />
+                                <TextCell Text="Internet Reachable Via" Detail="{Binding InternetReachability}" />
+                            </TableSection>
+                        </TableRoot>
+                    </TableView>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>-->
+
+        <!--<NavigationPage Title="App Events">
+            <x:Arguments>
+                <ContentPage>
+                    <ContentPage.ToolbarItems>
+                        <ToolbarItem Text="Clear" Command="{Binding ClearApp}" />
+                    </ContentPage.ToolbarItems>
+
+                    <ContentPage.Content>
+                        <ListView ItemsSource="{Binding AppEvents}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding Text}" Detail="{Binding Detail}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ContentPage.Content>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>-->
+
+        <NavigationPage Title="Battery Events">
+            <x:Arguments>
+                <ContentPage>
+                    <ContentPage.ToolbarItems>
+                        <ToolbarItem Text="Clear" Command="{Binding ClearBattery}" />
+                    </ContentPage.ToolbarItems>
+
+                    <ContentPage.Content>
+                        <ListView ItemsSource="{Binding BatteryEvents}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding Text}" Detail="{Binding Detail}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ContentPage.Content>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+
+        <!--<NavigationPage Title="Network Events">
+            <x:Arguments>
+                <ContentPage>
+                    <ContentPage.ToolbarItems>
+                        <ToolbarItem Text="Clear" Command="{Binding ClearNetwork}" />
+                    </ContentPage.ToolbarItems>
+
+                    <ContentPage.Content>
+                        <ListView ItemsSource="{Binding NetworkEvents}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell Text="{Binding Text}" Detail="{Binding Detail}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ContentPage.Content>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>-->
+
+    </TabbedPage.Children>
+</TabbedPage>

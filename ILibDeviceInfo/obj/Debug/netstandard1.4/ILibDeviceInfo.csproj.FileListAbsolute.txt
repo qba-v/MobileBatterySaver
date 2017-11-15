@@ -1,0 +1,7 @@
+C:\Users\jkozi\documents\visual studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\bin\Debug\netstandard1.4\ILibDeviceInfo.deps.json
+C:\Users\jkozi\documents\visual studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\obj\Debug\netstandard1.4\ILibDeviceInfo.csproj.CoreCompileInputs.cache
+C:\Users\jkozi\documents\visual studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\obj\Debug\netstandard1.4\ILibDeviceInfo.AssemblyInfo.cs
+C:\Users\jkozi\documents\visual studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\bin\Debug\netstandard1.4\ILibDeviceInfo.dll
+C:\Users\jkozi\documents\visual studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\bin\Debug\netstandard1.4\ILibDeviceInfo.pdb
+C:\Users\jkozi\documents\visual studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\obj\Debug\netstandard1.4\ILibDeviceInfo.dll
+C:\Users\jkozi\documents\visual studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\obj\Debug\netstandard1.4\ILibDeviceInfo.pdb

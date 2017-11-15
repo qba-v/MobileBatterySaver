@@ -1,4 +1,5 @@
-﻿using BatteryMobileSaver.Droid.ApplicationFiles;
+﻿
+using BatteryMobileSaver.Droid.ApplicationFiles;
 using BatteryMobileSaver.Interfaces;
 using System;
 

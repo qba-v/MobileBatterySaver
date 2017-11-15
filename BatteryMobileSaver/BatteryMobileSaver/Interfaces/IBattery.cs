@@ -8,7 +8,5 @@ namespace BatteryMobileSaver.Interfaces
         int RemainingChargePercent { get; }
         Models.BatteryStatus Status { get; }
         PowerSource PowerSource { get; }
-        IObservable<int> WhenBatteryPercentageChanged();
-        IObservable<BatteryStatus> WhenPowerStatusChanged();
     }
 }

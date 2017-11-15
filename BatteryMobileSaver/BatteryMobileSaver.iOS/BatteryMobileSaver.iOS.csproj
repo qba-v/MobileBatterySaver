@@ -119,12 +119,6 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Plugin.DeviceInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Acr.DeviceInfo.5.0.5\lib\Xamarin.iOS10\Plugin.DeviceInfo.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.DeviceInfo.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Acr.DeviceInfo.5.0.5\lib\Xamarin.iOS10\Plugin.DeviceInfo.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
@@ -158,7 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BatteryMobileSaver\BatteryMobileSaver.csproj">
-      <Project>{80546e1b-7828-4fc0-8a75-35d2c1c82a68}</Project>
+      <Project>{c68cbccc-27bb-45dc-9600-da45f1e1fa11}</Project>
       <Name>BatteryMobileSaver</Name>
     </ProjectReference>
   </ItemGroup>

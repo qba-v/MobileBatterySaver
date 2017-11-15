@@ -1,5 +1,4 @@
-﻿using BatteryMobileSaver.Interfaces;
-using BatteryMobileSaver.UWP.ApplicationFiles;
+﻿using BatteryMobileSaver.UWP.ApplicationFiles;
 using System;
 
 [assembly: Xamarin.Forms.Dependency(typeof(BackgroundApplicationsUWP))]

@@ -21,7 +21,7 @@ namespace BatteryMobileSaver.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            Xamarin.Forms.DependencyService.Register<IBackgroundApplications>();
+            //Xamarin.Forms.DependencyService.Register<IBackgroundApplications>();
             LoadApplication(new App());
         }
     }

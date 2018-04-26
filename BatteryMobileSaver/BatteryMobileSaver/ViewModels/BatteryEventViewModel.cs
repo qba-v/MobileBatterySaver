@@ -8,7 +8,7 @@ namespace BatteryMobileSaver.Models
 {
     public class BatteryEventViewModel
     {
-        public string Text { get; } = DateTime.Now.ToString();
+        public string Text { get; } = DateTime.Now.ToString("T");
         public string Detail { get; set; }
     }
 }

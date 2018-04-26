@@ -12,10 +12,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Xamarin.Forms.Platform.UWP;
 
 namespace BatteryMobileSaver.UWP
 {
-    public sealed partial class MainPage
+    public sealed partial class MainPage : WindowsPage
     {
         public MainPage()
         {

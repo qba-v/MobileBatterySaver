@@ -1,10 +1,15 @@
 ﻿{
   "dependencies": {
+    "Acr.DeviceInfo": "5.0.5",
+    "Fody": "3.0.3",
+    "Microcharts.Forms": "0.6.2",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "PropertyChanged.Fody": "2.5.4",
+    "System.ValueTuple": "4.4.0",
     "Xamarin.Forms": "2.3.4.224"
   },
   "frameworks": {
-    "uap10.0": {}
+    "uap10.0.10586": {}
   },
   "runtimes": {
     "win10-arm": {},

@@ -1,8 +1,0 @@
-C:\Users\jkozi\Documents\Visual Studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\bin\Debug\netstandard1.0\ILibDeviceInfo.deps.json
-C:\Users\jkozi\Documents\Visual Studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\bin\Debug\netstandard1.0\ILibDeviceInfo.dll
-C:\Users\jkozi\Documents\Visual Studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\bin\Debug\netstandard1.0\ILibDeviceInfo.pdb
-C:\Users\jkozi\Documents\Visual Studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\obj\Debug\netstandard1.0\ILibDeviceInfo.csprojResolveAssemblyReference.cache
-C:\Users\jkozi\Documents\Visual Studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\obj\Debug\netstandard1.0\ILibDeviceInfo.csproj.CoreCompileInputs.cache
-C:\Users\jkozi\Documents\Visual Studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\obj\Debug\netstandard1.0\ILibDeviceInfo.AssemblyInfo.cs
-C:\Users\jkozi\Documents\Visual Studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\obj\Debug\netstandard1.0\ILibDeviceInfo.dll
-C:\Users\jkozi\Documents\Visual Studio 2017\Projects\BatteryMobileSaver\ILibDeviceInfo\obj\Debug\netstandard1.0\ILibDeviceInfo.pdb

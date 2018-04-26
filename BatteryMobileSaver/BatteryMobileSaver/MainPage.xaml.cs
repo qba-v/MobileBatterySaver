@@ -1,89 +1,63 @@
 ﻿using BatteryMobileSaver.ViewModels;
-using LibDeviceInfo;
+using Microcharts;
+using Plugin.DeviceInfo;
+using SkiaSharp;
+using System.Collections.Generic;
 using Xamarin.Forms;
+using Entry = Microcharts.Entry;
 
 namespace BatteryMobileSaver
 {
     public partial class MainPage : TabbedPage
     {
+
+        List<Entry> entries = new List<Microcharts.Entry>
+        {
+            new Entry(200)
+            {
+                Color = SKColor.Parse("#FF1493"),
+                Label = "January",
+                ValueLabel = "200"
+            },
+            new Entry(400)
+            {
+                Color = SKColor.Parse("#00BFFF"),
+                Label = "Febraur",
+                ValueLabel = "400"
+            },
+            new Entry(100)
+            {
+                Color = SKColor.Parse("#00CED1"),
+                Label = "March",
+                ValueLabel = "100"
+            }
+        };
+
         public MainPage()
         {
-            InitializeComponent();
-            this.BindingContext = new MainViewModel(
-                CrossShared.Battery
-                );
+            try
+            {
 
-            //var button = new Button
-            //{
-            //    Text = "Click for battery info",
-            //    VerticalOptions = LayoutOptions.CenterAndExpand,
-            //    HorizontalOptions = LayoutOptions.CenterAndExpand,
-            //};
-            
+                InitializeComponent();
+
+                this.BindingContext = new MainViewModel(
+                    CrossDevice.Battery,
+                    CrossDevice.Hardware,
+                    batteryChart
+                    );
+
+                //batteryChart.Chart = new LineChart { Entries = entries };
+            }
+            catch (System.Exception ex)
+            {
+                throw;
+            }
         }
-
-        //private void btn_Clicked(object sender, EventArgs e)
-        //{
-        //    //List<string> list = new List<string>();
-
-        //    //var apps = Android.App.Application.Context.PackageManager.GetInstalledApplications(PackageInfoFlags.MatchAll);
-
-        //    //for(int i = 0; i<apps.Count; i++)
-        //    //{
-        //    //    var app = apps[i].LoadLabel(Android.App.Application.Context.PackageManager);
-
-        //    //    list.Add(app);
-        //    //}
-
-        //    //DependencyService.Get<IBackgroundApplications>().GetBackgroundApplications();
-
-        //    var bat = DependencyService.Get<IBattery>();
-
-        //    switch (bat.PowerSource)
-        //    {
-        //        case PowerSource.Battery:
-        //            btn.Text = "Battery - ";
-        //            break;
-        //        case PowerSource.Ac:
-        //            btn.Text = "AC - ";
-        //            break;
-        //        case PowerSource.Usb:
-        //            btn.Text = "USB - ";
-        //            break;
-        //        case PowerSource.Wireless:
-        //            btn.Text = "Wireless - ";
-        //            break;
-        //        case PowerSource.Other:
-        //        default:
-        //            btn.Text = "Other - ";
-        //            break;
-        //    }
-        //    switch (bat.Status)
-        //    {
-        //        case BatteryStatus.Charging:
-        //            btn.Text += $"Charging. Now your battery is : {bat.RemainingChargePercent} percent";
-        //            break;
-        //        case BatteryStatus.Discharging:
-        //            btn.Text += "Discharging";
-        //            break;
-        //        case BatteryStatus.NotCharging:
-        //            btn.Text += "Not Charging";
-        //            break;
-        //        case BatteryStatus.Full:
-        //            btn.Text += "Full";
-        //            break;
-        //        case BatteryStatus.Unknown:
-        //        default:
-        //            btn.Text += "Unknown";
-        //            break;
-        //    }
-        //    Content = btn;
-        //}
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
             ((MainViewModel)this.BindingContext).Start();
         }
+
     }
 }

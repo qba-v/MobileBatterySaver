@@ -96,8 +96,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationFiles\BackgroundApplicationsUWP.cs" />
-    <Compile Include="ApplicationFiles\BatteryStatusUWP.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -110,6 +108,7 @@
     <None Include="BatteryMobileSaver.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="FodyWeavers.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-100.png" />
     <Content Include="Assets\LockScreenLogo.scale-125.png" />
@@ -155,7 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BatteryMobileSaver\BatteryMobileSaver.csproj">
-      <Project>{80546e1b-7828-4fc0-8a75-35d2c1c82a68}</Project>
+      <Project>{c68cbccc-27bb-45dc-9600-da45f1e1fa11}</Project>
       <Name>BatteryMobileSaver</Name>
     </ProjectReference>
   </ItemGroup>

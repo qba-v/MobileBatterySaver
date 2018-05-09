@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Java.Lang;
+using static Android.App.ActivityManager;
 
 namespace BatteryMobileSaver.Droid
 {
@@ -19,8 +19,7 @@ namespace BatteryMobileSaver.Droid
         Context context;
         public override int Count => throw new NotImplementedException();
 
-        public MyAdapter(List<ActivityManager.RunningAppProcessInfo>
-       processes, Context context)
+        public MyAdapter(List<ActivityManager.RunningAppProcessInfo>processes, Context context)
         {
             this.context = context;
             this.processes = processes;
@@ -36,31 +35,37 @@ namespace BatteryMobileSaver.Droid
             return processes.FirstOrDefault(x => x.Pid == position).Pid;
         }
 
-        public View GetView(int position, View convertView, ViewGroup parent)
+        
+        public override View GetView(int position, View convertView, ViewGroup parent)
         {
             Process pro;
 
             if (convertView == null)
             {
                 convertView = new TextView(context);
-                pro = new Process();
-                pro.name = (TextView)convertView;
+                pro = new Process
+                {
+                    name = (TextView)convertView
+                    //ocessName = (TextView)convertView;
+                    //mn = (TextView)convertView
 
-                //convertView.SetTag(position, pro);
+                };
+
+                convertView.SetTag(position, pro);
             }
             else
             {
-                //pro = (Process)convertView.GetTag();
+                pro = (Process)convertView.GetTag(position);
             }
 
-            //pro.name.SetText(processes.Get(position).processName);
+            //pro.name = processes.
 
             return convertView;
         }
         
-        class Process
-        {
-            public TextView name;
-        }
+    }
+    class Process : Java.Lang.Object
+    {
+        public TextView name;
     }
 }

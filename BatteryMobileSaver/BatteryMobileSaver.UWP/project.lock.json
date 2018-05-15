@@ -25229,14 +25229,13 @@
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
-    "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\BatteryMobileSaver.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\jkozi\\Documents\\Visual Studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\BatteryMobileSaver.UWP.csproj",
       "projectName": "BatteryMobileSaver.UWP",
-      "projectPath": "C:\\Users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\BatteryMobileSaver.UWP.csproj",
-      "projectJsonPath": "C:\\Users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\project.json",
+      "projectPath": "C:\\Users\\jkozi\\Documents\\Visual Studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\BatteryMobileSaver.UWP.csproj",
+      "projectJsonPath": "C:\\Users\\jkozi\\Documents\\Visual Studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\project.json",
       "packagesPath": "C:\\Users\\jkozi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\obj\\",
+      "outputPath": "C:\\Users\\jkozi\\Documents\\Visual Studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.UWP\\obj\\",
       "projectStyle": "ProjectJson",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
@@ -25253,8 +25252,8 @@
       "frameworks": {
         "uap10.0.10586": {
           "projectReferences": {
-            "C:\\Users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.csproj": {
-              "projectPath": "C:\\Users\\jkozi\\documents\\visual studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.csproj"
+            "C:\\Users\\jkozi\\Documents\\Visual Studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.csproj": {
+              "projectPath": "C:\\Users\\jkozi\\Documents\\Visual Studio 2017\\Projects\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver\\BatteryMobileSaver.csproj"
             }
           }
         }

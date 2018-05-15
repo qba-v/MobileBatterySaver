@@ -58,6 +58,40 @@
                 </ContentPage>
             </x:Arguments>
         </NavigationPage>
+        <!--<NavigationPage Title="Apps List">
+            <x:Arguments>
+                <ContentPage>
+                    
+                    <ContentPage.Content>
+                        <ListView  ItemsSource="{Binding AppsList}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell TextColor="Black" Text="{Binding DisplayName}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ContentPage.Content>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>-->
+        <NavigationPage Title="Processes List">
+            <x:Arguments>
+                <ContentPage>
+                    <ContentPage.ToolbarItems>
+                        <ToolbarItem Text="Clear list" Command="{Binding KillProcesses}" />
+                    </ContentPage.ToolbarItems>
+                    <ContentPage.Content>
+                        <ListView  ItemsSource="{Binding ProcessList}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell TextColor="Black" Text="{Binding ExeName}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ContentPage.Content>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
 
     </TabbedPage.Children>
     

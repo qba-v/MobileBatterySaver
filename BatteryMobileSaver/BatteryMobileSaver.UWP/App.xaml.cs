@@ -1,4 +1,5 @@
 ﻿
+using BatteryMobileSaver.UWP.AppServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -60,6 +61,7 @@ namespace BatteryMobileSaver.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 Xamarin.Forms.Forms.Init(e);
+                Xamarin.Forms.DependencyService.Register<BackgroundAppsInfoUWP>();
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

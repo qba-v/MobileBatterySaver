@@ -13,6 +13,8 @@ using Android.Content;
 using static Android.App.ActivityManager;
 using System.Linq;
 using Java.Lang;
+using BatteryMobileSaver.Abstract;
+using Plugin.CurrentActivity;
 
 namespace BatteryMobileSaver.Droid
 {
@@ -23,74 +25,68 @@ namespace BatteryMobileSaver.Droid
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        List<ActivityManager.RunningAppProcessInfo> processes;
-        ActivityManager mgr;
-        int load = 0;
-        Android.Widget.ListView lst;
-        MyAdapter adp;
-
-        private Context mContext;
-
+        public static ActivityManager Mgr { get; set; }
+        public static PackageManager packageManager { get; set; }
         protected override void OnCreate(Bundle bundle)
         {
-            lst = new Android.Widget.ListView(this);
-            mgr = (ActivityManager)GetSystemService(Context.ActivityService);
+            Mgr = (ActivityManager)GetSystemService(Context.ActivityService);
 
-            mContext = this;
+            //mContext = this;
 
-            string s = string.Empty;
+            //string s = string.Empty;
 
-            List<RunningAppProcessInfo> list = mgr.RunningAppProcesses.ToList();
+            //List<RunningAppProcessInfo> list = mgr.RunningAppProcesses.ToList();
 
-            // Count the number of running processes
-            int initialRunningProcessesSize = list.Count;
+            //// Count the number of running processes
+            //int initialRunningProcessesSize = list.Count;
 
-            // Iterate over the RunningAppProcess list
-            foreach (var process in list)
-            {
-                if (process.PkgList.Count == 0) continue;
-                try
-                {
-                    PackageInfo packageInfo = PackageManager.GetPackageInfo(process.PkgList[0], PackageInfoFlags.Activities);
+            //// Iterate over the RunningAppProcess list
+            //foreach (var process in list)
+            //{
+            //    if (process.PkgList.Count == 0) continue;
+            //    try
+            //    {
+            //        PackageInfo packageInfo = PackageManager.GetPackageInfo(process.PkgList[0], PackageInfoFlags.Activities);
 
-                    if (!(packageInfo.PackageName == this.PackageName))
-                    {
-                        // Try to kill other background processes
-                        // System processes are ignored
-                        mgr.KillBackgroundProcesses(packageInfo.PackageName);
-                    }
+            //        if (!(packageInfo.PackageName == this.PackageName))
+            //        {
+            //            // Try to kill other background processes
+            //            // System processes are ignored
+            //            mgr.KillBackgroundProcesses(packageInfo.PackageName);
+            //        }
 
-                }
-                catch (System.Exception ex)
-                {
+            //    }
+            //    catch (System.Exception ex)
+            //    {
 
-                    throw ex;
-                }
-            }
+            //        throw ex;
+            //    }
+            //}
 
-            // Get the running processes after killing some
-            int currentRunningProcessesSize = mgr.RunningAppProcesses.Count;
+            //// Get the running processes after killing some
+            //int currentRunningProcessesSize = mgr.RunningAppProcesses.Count;
 
-            // Return the number of killed processes
-            var count = initialRunningProcessesSize - currentRunningProcessesSize;
+            //// Return the number of killed processes
+            //var count = initialRunningProcessesSize - currentRunningProcessesSize;
 
-            //KillBackgroundProcessesTask km = new KillBackgroundProcessesTask(mContext, PackageManager).Execute(Java.Lang.Object[]);
+            ////KillBackgroundProcessesTask km = new KillBackgroundProcessesTask(mContext, PackageManager).Execute(Java.Lang.Object[]);
 
-            foreach (var item in mgr.RunningAppProcesses)
-            {
-                if (item.ProcessName != "com.acrapps.deviceinfo")
-                {
-                    Android.OS.Process.KillProcess(item.Pid);
-                    Android.OS.Process.SendSignal(item.Pid, Signal.Kill);
-                    mgr.RestartPackage(item.ProcessName);
-                    mgr.KillBackgroundProcesses(item.ProcessName);
-                }
-                list.Add(item);
-            }
+            //foreach (var item in mgr.RunningAppProcesses)
+            //{
+            //    if (item.ProcessName != "com.acrapps.deviceinfo")
+            //    {
+            //        Android.OS.Process.KillProcess(item.Pid);
+            //        Android.OS.Process.SendSignal(item.Pid, Signal.Kill);
+            //        mgr.RestartPackage(item.ProcessName);
+            //        mgr.KillBackgroundProcesses(item.ProcessName);
+            //    }
+            //    list.Add(item);
+            //}
 
             base.OnCreate(bundle);
             Forms.Init(this, bundle);
-            //Xamarin.Forms.DependencyService.Register<IBackgroundApplications>();
+            CrossCurrentActivity.Current.Init(this, bundle);
+            Xamarin.Forms.DependencyService.Register<IBackgroundAppsInfo>();
             LoadApplication(new App());
         }
 

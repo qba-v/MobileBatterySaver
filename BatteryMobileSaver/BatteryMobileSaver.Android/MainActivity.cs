@@ -25,11 +25,11 @@ namespace BatteryMobileSaver.Droid
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        public static ActivityManager Mgr { get; set; }
-        public static PackageManager packageManager { get; set; }
+        //public static ActivityManager Mgr { get; set; }
+        //public static PackageManager packageManager { get; set; }
         protected override void OnCreate(Bundle bundle)
         {
-            Mgr = (ActivityManager)GetSystemService(Context.ActivityService);
+//            Mgr = (ActivityManager)GetSystemService(Context.ActivityService);
 
             //mContext = this;
 
@@ -86,57 +86,10 @@ namespace BatteryMobileSaver.Droid
             base.OnCreate(bundle);
             Forms.Init(this, bundle);
             CrossCurrentActivity.Current.Init(this, bundle);
+            CrossCurrentActivity.Current.Activity = this;
             Xamarin.Forms.DependencyService.Register<IBackgroundAppsInfo>();
             LoadApplication(new App());
         }
-
-
-
-        //private class KillBackgroundProcessesTask : AsyncTask //<Void, Void, Void>
-        //{
-        //    Context mmContext;
-        //    PackageManager Manager;
-
-        //    public KillBackgroundProcessesTask()
-        //    {
-
-        //    }
-            
-
-        //    public KillBackgroundProcessesTask(Context context, PackageManager manager)
-        //    {
-        //        mmContext = context;
-        //        Manager = manager;
-        //    }
-
-        //    protected void onPostExecute(int result)
-        //    {
-
-        //        // Show the number of killed processes
-        //        //Toast.MakeText(mContext, "Killed : " + result + " processes", Toast.LENGTH_SHORT).show();
-
-        //        // Refresh the TextView with running processes
-        //        //populateTextViewWithRunningProcesses();
-        //    }
-
-        //    protected override Java.Lang.Object DoInBackground(params Java.Lang.Object[] @params)
-        //    {
-        //        // Get an instance of ActivityManager
-        //        ActivityManager am = (ActivityManager)mmContext.GetSystemService(Context.ActivityService);
-
-
-        //        // Get a list of RunningAppProcessInfo
-        //        List<ActivityManager.RunningAppProcessInfo> list = am.RunningAppProcesses.ToList();
-
-                
-        //    }
-
-        //    //protected override int RunInBackground(params void[] @params)
-        //    //{
-        //    //    throw new NotImplementedException();
-        //    //}
-        //}
-
     }
     
 }

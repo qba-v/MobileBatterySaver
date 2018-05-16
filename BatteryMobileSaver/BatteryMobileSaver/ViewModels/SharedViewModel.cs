@@ -9,12 +9,20 @@ using System.Threading.Tasks;
 
 namespace BatteryMobileSaver.ViewModels
 {
-    public class UWPViewModel : INotifyPropertyChanged
+    public  class SharedViewModel : INotifyPropertyChanged
     {
-        public UWPViewModel()
+
+        public SharedViewModel()
         {
             appInfoList = new ObservableCollection<AppInfoModel>();
             processList = new ObservableCollection<ProcessInfoModel>();
+        }
+
+        private int _processesCount;
+        public int ProcessesCount
+        {
+            get { return _processesCount; }
+            set { _processesCount = value; NotifyPropertyChanged("ProcessesCount"); }
         }
 
         private ObservableCollection<AppInfoModel> appInfoList;

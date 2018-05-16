@@ -9,8 +9,8 @@ namespace BatteryMobileSaver.Abstract
 {
     public interface IBackgroundAppsInfo
     {
-        UWPViewModel GetBeackgroundProcesses();
+        SharedViewModel GetBeackgroundProcesses();
 
-        UWPViewModel KillAvailableProcesses();
+        SharedViewModel KillAvailableProcesses();
     }
 }

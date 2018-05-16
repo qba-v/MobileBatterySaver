@@ -14,6 +14,8 @@ namespace BatteryMobileSaver.Models
         public ulong PageFileSize { get; set; }
         public ulong WorkingSetSize { get; set; }
         public uint ProcessId { get; set; }
+
+
         //public ProcessInfoModel(ProcessDiagnosticInfo process)
         //{
         //    ProcessCpuUsageReport cpuReport = process.CpuUsage.GetReport();

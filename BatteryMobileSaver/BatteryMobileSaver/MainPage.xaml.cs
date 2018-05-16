@@ -12,7 +12,7 @@ namespace BatteryMobileSaver
 {
     public partial class MainPage : TabbedPage
     {
-        public MainPage(UWPViewModel uwpViewModel = null)
+        public MainPage(SharedViewModel uwpViewModel = null)
         {
             try
             {

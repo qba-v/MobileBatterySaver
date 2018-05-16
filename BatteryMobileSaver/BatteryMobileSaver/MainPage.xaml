@@ -51,6 +51,7 @@
                 <ContentPage>
                     <ContentPage.ToolbarItems>
                         <ToolbarItem Text="Clear chart" Command="{Binding ChartData}" />
+                        
                     </ContentPage.ToolbarItems>
                     <ContentPage.Content>
                         <forms:ChartView x:Name="batteryChart" HeightRequest="150"/>
@@ -78,7 +79,8 @@
             <x:Arguments>
                 <ContentPage>
                     <ContentPage.ToolbarItems>
-                        <ToolbarItem Text="Clear list" Command="{Binding KillProcesses}" />
+                        <ToolbarItem Text="{Binding ProcessesCount}"   />
+                        <ToolbarItem Text="Try kill processes" Command="{Binding KillProcesses}" />
                     </ContentPage.ToolbarItems>
                     <ContentPage.Content>
                         <ListView  ItemsSource="{Binding ProcessList}">

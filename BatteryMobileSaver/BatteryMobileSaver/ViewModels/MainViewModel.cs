@@ -32,6 +32,7 @@ namespace BatteryMobileSaver.ViewModels
         IDisposable batteryPercent;
         public int BatteryPercent { get; set; }
         public int TmpChartBatteryPercent { get; set; }
+        public int ProcessesCount { get; set; }
 
         //HARDWARE
         public IHardwareInfo Hardware { get; set; }
@@ -46,20 +47,34 @@ namespace BatteryMobileSaver.ViewModels
 
         #region Constructor
 
-        public MainViewModel(IBatteryInfo battery, IHardwareInfo hardware, ChartView chartView, UWPViewModel uwpViewModel)
+        public MainViewModel(IBatteryInfo battery, IHardwareInfo hardware, ChartView chartView, SharedViewModel sharedViewModel)
         {
             this.Battery = battery;
             this.Hardware = hardware;
             this.ChartView = chartView;
-            this.ProcessList = uwpViewModel.ProcessList;
-            this.AppsList = uwpViewModel.AppInfoList;
+            this.ProcessList = sharedViewModel.ProcessList;
+            this.AppsList = sharedViewModel.AppInfoList;
+            this.ProcessesCount = sharedViewModel.ProcessesCount;
             //Clears
             this.ClearBattery = new Command(this.BatteryEvents.Clear);
             this.ClearChart = new Command(this.ChartData.Clear);
-            this.KillProcesses = new Command((param) => DependencyService.Get<IBackgroundAppsInfo>().KillAvailableProcesses());
+            this.KillProcesses = new Command((param) => RefreshProcesses());
         }
         #endregion Constructor
         
+        public void RefreshProcesses()
+        {
+            var proccesses = DependencyService.Get<IBackgroundAppsInfo>().KillAvailableProcesses();
+            this.ProcessList.Clear();
+            foreach(var item in proccesses.ProcessList)
+            {
+                this.ProcessList.Add(new ProcessInfoModel
+                {
+                    ExeName = item.ExeName,
+                });
+            }
+            this.ProcessesCount = this.ProcessList.Count;
+        }
 
         public void Start()
         {

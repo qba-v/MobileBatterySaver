@@ -22,38 +22,46 @@ namespace BatteryMobileSaver.Droid.AppServices
 {
     public class BackgroundAppsInfoAndroid : IBackgroundAppsInfo
     {
-        int load = 0;
-        public UWPViewModel GetBeackgroundProcesses()
-        {
-            UWPViewModel uwpViewModel = new UWPViewModel();
-            var tmp = CrossCurrentActivity.Current.Activity;
-            var mgr = MainActivity.Mgr;
+        Activity currActivity = CrossCurrentActivity.Current.Activity;
+        Context currContext = CrossCurrentActivity.Current.AppContext;
 
-            List<RunningAppProcessInfo> list = mgr.RunningAppProcesses.ToList();
+        int load = 0;
+        public SharedViewModel GetBeackgroundProcesses()
+        {
+            SharedViewModel sharedViewModel = new SharedViewModel();
+
+            ActivityManager Mgr = (ActivityManager)currContext.GetSystemService(Context.ActivityService);
+
+            List<RunningAppProcessInfo> list = Mgr.RunningAppProcesses.ToList();
             foreach (var item in list)
             {
-                uwpViewModel.ProcessList.Add(new Models.ProcessInfoModel
+                sharedViewModel.ProcessList.Add(new Models.ProcessInfoModel
                 {
                     ExeName = item.ProcessName,
                 });
             }
-            return uwpViewModel;
+            sharedViewModel.ProcessesCount = sharedViewModel.ProcessList.Count;
+            return sharedViewModel;
         }
 
-        public UWPViewModel KillAvailableProcesses()
+        public SharedViewModel KillAvailableProcesses()
         {
-            UWPViewModel uwpViewModel = new UWPViewModel();
-            List<RunningAppProcessInfo> list = MainActivity.Mgr.RunningAppProcesses.ToList();
+            SharedViewModel sharedViewModel = new SharedViewModel();
+
+            ActivityManager Mgr = (ActivityManager)currContext.GetSystemService(Context.ActivityService);
+
+            List<RunningAppProcessInfo> list = Mgr.RunningAppProcesses.ToList();
             foreach (var process in list)
             {
                 if (process.PkgList.Count == 0) continue;
                 try
                 {
-                    PackageInfo packageInfo = MainActivity.packageManager.GetPackageInfo(process.PkgList[0], PackageInfoFlags.Activities);
+                    
+                    PackageInfo packageInfo = currContext.PackageManager.GetPackageInfo(process.PkgList[0], PackageInfoFlags.Activities);
 
                     // Try to kill other background processes
                     // System processes are ignored
-                    MainActivity.Mgr.KillBackgroundProcesses(packageInfo.PackageName);
+                    Mgr.KillBackgroundProcesses(packageInfo.PackageName);
                 }
                 catch (System.Exception ex)
                 {
@@ -61,17 +69,17 @@ namespace BatteryMobileSaver.Droid.AppServices
                     throw ex;
                 }
             }
-            List<RunningAppProcessInfo> listTOReturn = MainActivity.Mgr.RunningAppProcesses.ToList();
+            List<RunningAppProcessInfo> listTOReturn = Mgr.RunningAppProcesses.ToList();
 
-            foreach (var item in list)
+            foreach (var item in listTOReturn)
             {
-                uwpViewModel.ProcessList.Add(new Models.ProcessInfoModel
+                sharedViewModel.ProcessList.Add(new Models.ProcessInfoModel
                 {
                     ExeName = item.ProcessName,
                 });
             }
-
-            return uwpViewModel;
+            sharedViewModel.ProcessesCount = sharedViewModel.ProcessList.Count;
+            return sharedViewModel;
         }
     }
 }

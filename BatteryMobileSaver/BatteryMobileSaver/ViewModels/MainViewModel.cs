@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -52,7 +53,7 @@ namespace BatteryMobileSaver.ViewModels
             this.Battery = battery;
             this.Hardware = hardware;
             this.ChartView = chartView;
-            this.ProcessList = sharedViewModel.ProcessList;
+            //this.ProcessList = sharedViewModel.ProcessList;
             this.AppsList = sharedViewModel.AppInfoList;
             this.ProcessesCount = sharedViewModel.ProcessesCount;
             //Clears
@@ -64,6 +65,8 @@ namespace BatteryMobileSaver.ViewModels
         
         public void RefreshProcesses()
         {
+
+
             var proccesses = DependencyService.Get<IBackgroundAppsInfo>().KillAvailableProcesses();
             this.ProcessList.Clear();
             foreach(var item in proccesses.ProcessList)

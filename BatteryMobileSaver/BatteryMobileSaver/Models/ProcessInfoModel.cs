@@ -36,7 +36,7 @@ namespace BatteryMobileSaver.Models
         //        WorkingSetSize = memoryReport.WorkingSetSizeInBytes;
         //    }
         //    ProcessId = process.ProcessId;
-        //    ExeName = process.ExecutableFileName;            
+        //    ExeName = process.ExecutableFileName;
         //}
     }
 }

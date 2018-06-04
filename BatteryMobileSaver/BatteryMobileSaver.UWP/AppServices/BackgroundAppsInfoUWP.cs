@@ -16,11 +16,12 @@ namespace BatteryMobileSaver.UWP.AppServices
     {
         BatteryMobileSaver.ViewModels.SharedViewModel sharedViewModel = new BatteryMobileSaver.ViewModels.SharedViewModel();
         BatteryMobileSaver.UWP.ViewModels.UWPNativeViewModel uwpNativeViewModel = new BatteryMobileSaver.UWP.ViewModels.UWPNativeViewModel();
+
         public BatteryMobileSaver.ViewModels.SharedViewModel GetBeackgroundProcesses()
         {
-            GetAppInfo();
+            GetAppsList();
             LoadProcesses();
-            foreach(var process in uwpNativeViewModel.ProcessList)
+            foreach (var process in uwpNativeViewModel.ProcessList)
             {
                 sharedViewModel.ProcessList.Add(new BatteryMobileSaver.Models.ProcessInfoModel
                 {
@@ -34,18 +35,37 @@ namespace BatteryMobileSaver.UWP.AppServices
             }
             return sharedViewModel;
         }
-        public async void GetAppInfo()
+        public async void GetAppsList()
         {
             IList<AppDiagnosticInfo> list = await AppDiagnosticInfo.RequestInfoAsync();
+            //list.ToList().ForEach(o => sharedViewModel.AppInfoList.Add(new BatteryMobileSaver.Models.AppInfoModel(o.AppInfo)));
             list.ToList().ForEach(o => sharedViewModel.AppInfoList.Add(new BatteryMobileSaver.Models.AppInfoModel
             {
-                DisplayName = o.AppInfo.PackageFamilyName,
+                DisplayName = o.AppInfo.DisplayInfo.DisplayName,
+                Description = o.AppInfo.DisplayInfo.Description,
+                AppUserModelId = o.AppInfo.AppUserModelId,
+                PackageFamilyName = o.AppInfo.PackageFamilyName,
+                
             }));
         }
+        //public async void GetAppInfo()
+        //{
+        //    IList<AppDiagnosticInfo> list = await AppDiagnosticInfo.GetResourceGroups();
+        //    //list.ToList().ForEach(o => sharedViewModel.AppInfoList.Add(new BatteryMobileSaver.Models.AppInfoModel(o.AppInfo)));
+        //    list.ToList().ForEach(o => sharedViewModel.AppInfoList.Add(new BatteryMobileSaver.Models.AppInfoModel
+        //    {
+        //        DisplayName = o.AppInfo.DisplayInfo.DisplayName,
+        //        Description = o.AppInfo.DisplayInfo.Description,
+        //        AppUserModelId = o.AppInfo.AppUserModelId,
+        //        PackageFamilyName = o.AppInfo.PackageFamilyName
+        //        o.
+        //    }));
+        //}
 
         private void LoadProcesses()
         {
             List<ProcessDiagnosticInfo> processList = ProcessDiagnosticInfo.GetForProcesses().ToList();
+            
             processList.ForEach(o => uwpNativeViewModel.ProcessList.Add(new ProcessInfoModel(o)));
         }
 
@@ -53,5 +73,6 @@ namespace BatteryMobileSaver.UWP.AppServices
         {
             throw new NotImplementedException();
         }
+        
     }
 }

@@ -12,20 +12,21 @@ namespace BatteryMobileSaver
 {
     public partial class MainPage : TabbedPage
     {
-        public MainPage(SharedViewModel uwpViewModel = null)
+        public MainPage()
         {
             try
             {
-                var apps = DependencyService.Get<IBackgroundAppsInfo>().GetBeackgroundProcesses();
-
+                var processes = DependencyService.Get<IBackgroundAppsInfo>().GetBeackgroundProcesses();
+                
 
                 InitializeComponent();
+                
 
                 this.BindingContext = new MainViewModel(
                     CrossDevice.Battery,
                     CrossDevice.Hardware,
                     batteryChart,
-                    apps
+                    processes
                     );
                 
             }

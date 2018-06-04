@@ -12,5 +12,6 @@ namespace BatteryMobileSaver.Abstract
         SharedViewModel GetBeackgroundProcesses();
 
         SharedViewModel KillAvailableProcesses();
+        
     }
 }

@@ -59,7 +59,7 @@
                 </ContentPage>
             </x:Arguments>
         </NavigationPage>
-        <!--<NavigationPage Title="Apps List">
+        <NavigationPage Title="Apps List">
             <x:Arguments>
                 <ContentPage>
                     
@@ -74,7 +74,7 @@
                     </ContentPage.Content>
                 </ContentPage>
             </x:Arguments>
-        </NavigationPage>-->
+        </NavigationPage>
         <NavigationPage Title="Processes List">
             <x:Arguments>
                 <ContentPage>

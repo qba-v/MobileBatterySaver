@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -42,6 +42,11 @@ namespace BatteryMobileSaver.Droid.AppServices
             }
             sharedViewModel.ProcessesCount = sharedViewModel.ProcessList.Count;
             return sharedViewModel;
+        }
+
+        public Task<SharedViewModel> GetBeackgroundProcesses1()
+        {
+            throw new NotImplementedException();
         }
 
         public SharedViewModel KillAvailableProcesses()

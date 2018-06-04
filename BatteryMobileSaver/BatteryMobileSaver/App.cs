@@ -17,10 +17,10 @@ namespace BatteryMobileSaver
         //    this.MainPage
         //}
 
-        public App(SharedViewModel uwpViewModel = null)
+        public App()
         {
 
-            this.MainPage = new MainPage(uwpViewModel);
+            this.MainPage = new MainPage();
             
         }
     }

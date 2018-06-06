@@ -67,7 +67,8 @@
                         <ListView  ItemsSource="{Binding AppsList}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextCell TextColor="Black" Text="{Binding DisplayName}" />
+                                    <TextCell TextColor="Black" Text="{Binding DisplayName}" Detail="{Binding MemoryUsage}" />
+                                    
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
@@ -86,7 +87,7 @@
                         <ListView  ItemsSource="{Binding ProcessList}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextCell TextColor="Black" Text="{Binding ExeName}" />
+                                    <TextCell TextColor="Black" Text="{Binding ExeName}" Detail="{Binding ResourcesUsage}" />
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>

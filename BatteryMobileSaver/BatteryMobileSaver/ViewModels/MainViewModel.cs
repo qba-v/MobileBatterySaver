@@ -53,7 +53,7 @@ namespace BatteryMobileSaver.ViewModels
             this.Battery = battery;
             this.Hardware = hardware;
             this.ChartView = chartView;
-            //this.ProcessList = sharedViewModel.ProcessList;
+            this.ProcessList = sharedViewModel.ProcessList;
             this.AppsList = sharedViewModel.AppInfoList;
             this.ProcessesCount = sharedViewModel.ProcessesCount;
             //Clears

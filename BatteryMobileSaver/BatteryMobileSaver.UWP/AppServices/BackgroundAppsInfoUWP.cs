@@ -21,51 +21,99 @@ namespace BatteryMobileSaver.UWP.AppServices
         {
             GetAppsList();
             LoadProcesses();
-            foreach (var process in uwpNativeViewModel.ProcessList)
-            {
-                sharedViewModel.ProcessList.Add(new BatteryMobileSaver.Models.ProcessInfoModel
-                {
-                    CpuUsageTime = process.CpuUsageTime,
-                    DiskBytesCount = process.DiskBytesCount,
-                    ExeName = process.ExeName,
-                    PageFileSize = process.PageFileSize,
-                    ProcessId = process.ProcessId,
-                    WorkingSetSize = process.WorkingSetSize
-                });
-            }
+            //foreach (var process in uwpNativeViewModel.ProcessList)
+            //{
+            //    sharedViewModel.ProcessList.Add(new BatteryMobileSaver.Models.ProcessInfoModel
+            //    {
+            //        CpuUsageTime = process.CpuUsageTime,
+            //        DiskBytesCount = process.DiskBytesCount,
+            //        ExeName = process.ExeName,
+            //        PageFileSize = process.PageFileSize,
+            //        ProcessId = process.ProcessId,
+            //        WorkingSetSize = process.WorkingSetSize
+            //    });
+            //}
+
+            
+
             return sharedViewModel;
         }
         public async void GetAppsList()
         {
-            IList<AppDiagnosticInfo> list = await AppDiagnosticInfo.RequestInfoAsync();
+            var list = await AppDiagnosticInfo.RequestInfoAsync();
+
+
+            ////list.ToList().ForEach(o => sharedViewModel.AppInfoList.Add(new BatteryMobileSaver.Models.AppInfoModel(o.AppInfo)));
+            //list.ToList().ForEach(o => sharedViewModel.AppInfoList.Add(new BatteryMobileSaver.Models.AppInfoModel
+            //{
+            //    DisplayName = o.AppInfo.DisplayInfo.DisplayName,
+            //    Description = o.AppInfo.DisplayInfo.Description,
+            //    AppUserModelId = o.AppInfo.AppUserModelId,
+            //    PackageFamilyName = o.AppInfo.PackageFamilyName,
+
+
+            //}));
+            try
+            {
+
+                foreach (var app in list.ToList())
+                {
+                    BatteryMobileSaver.Models.AppInfoModel appInfo = new BatteryMobileSaver.Models.AppInfoModel();
+                    appInfo.DisplayName = app.AppInfo.DisplayInfo.DisplayName;
+                    appInfo.Description = app.AppInfo.DisplayInfo.Description;
+                    appInfo.PackageFamilyName = app.AppInfo.PackageFamilyName;
+
+                    AppDiagnosticInfo appDiagnostic = app;
+                    var resourceGroup = app.GetResourceGroups();
+                    var group = resourceGroup.FirstOrDefault();
+                    if (group != null)
+                        appInfo.MemoryUsage = "Memory usage: " + group.GetMemoryReport().TotalCommitUsage.ToString() + " B";
+
+                    sharedViewModel.AppInfoList.Add(appInfo);
+                }
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("System not suport dll");
+            }
+            
+
+            
+        }
+        public async void GetAppInfo()
+        {
+            IList<AppDiagnosticInfo> list = await AppDiagnosticInfo.RequestInfoForAppAsync();
             //list.ToList().ForEach(o => sharedViewModel.AppInfoList.Add(new BatteryMobileSaver.Models.AppInfoModel(o.AppInfo)));
             list.ToList().ForEach(o => sharedViewModel.AppInfoList.Add(new BatteryMobileSaver.Models.AppInfoModel
             {
                 DisplayName = o.AppInfo.DisplayInfo.DisplayName,
                 Description = o.AppInfo.DisplayInfo.Description,
                 AppUserModelId = o.AppInfo.AppUserModelId,
-                PackageFamilyName = o.AppInfo.PackageFamilyName,
+                PackageFamilyName = o.AppInfo.PackageFamilyName
                 
             }));
+
+
         }
-        //public async void GetAppInfo()
-        //{
-        //    IList<AppDiagnosticInfo> list = await AppDiagnosticInfo.GetResourceGroups();
-        //    //list.ToList().ForEach(o => sharedViewModel.AppInfoList.Add(new BatteryMobileSaver.Models.AppInfoModel(o.AppInfo)));
-        //    list.ToList().ForEach(o => sharedViewModel.AppInfoList.Add(new BatteryMobileSaver.Models.AppInfoModel
-        //    {
-        //        DisplayName = o.AppInfo.DisplayInfo.DisplayName,
-        //        Description = o.AppInfo.DisplayInfo.Description,
-        //        AppUserModelId = o.AppInfo.AppUserModelId,
-        //        PackageFamilyName = o.AppInfo.PackageFamilyName
-        //        o.
-        //    }));
-        //}
 
         private void LoadProcesses()
         {
             List<ProcessDiagnosticInfo> processList = ProcessDiagnosticInfo.GetForProcesses().ToList();
             
+            foreach(var process in processList)
+            {
+                BatteryMobileSaver.Models.ProcessInfoModel processInfo = new BatteryMobileSaver.Models.ProcessInfoModel();
+
+                processInfo.ExeName = process.ExecutableFileName;
+                processInfo.ProcessId = process.ProcessId;
+                var memory = process.MemoryUsage;
+                processInfo.MemoryUsage = "Memory usage: " + memory.GetReport().WorkingSetSizeInBytes.ToString() + " B";
+                processInfo.CpuUsage = "Cpu usage: " + process.CpuUsage.GetReport().KernelTime.Seconds.ToString() + " seconds";
+
+                sharedViewModel.ProcessList.Add(processInfo);
+            }
+
             processList.ForEach(o => uwpNativeViewModel.ProcessList.Add(new ProcessInfoModel(o)));
         }
 

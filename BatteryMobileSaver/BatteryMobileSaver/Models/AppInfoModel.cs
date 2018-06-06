@@ -14,6 +14,7 @@ namespace BatteryMobileSaver.Models
         public string PackageFamilyName { get; set; }
         public string DisplayName { get; set; }
         public string Description { get; set; }
+        public string MemoryUsage { get; set; }
 
         //private BitmapImage logoImage;
         //public BitmapImage LogoImage { get { return logoImage; } set { logoImage = value; NotifyPropertyChanged("LogoImage"); } }

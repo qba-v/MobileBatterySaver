@@ -9,11 +9,22 @@ namespace BatteryMobileSaver.Models
     public class ProcessInfoModel
     {
         public string ExeName { get; set; }
-        public string CpuUsageTime { get; set; }
+        public string CpuUsage { get; set; }
+        public string MemoryUsage { get; set; }
         public long DiskBytesCount { get; set; }
         public ulong PageFileSize { get; set; }
         public ulong WorkingSetSize { get; set; }
         public uint ProcessId { get; set; }
+
+        public string ResourcesUsage
+        {
+            get
+            {
+                string result = "";
+                result = MemoryUsage + Environment.NewLine + CpuUsage;
+                return result;
+            }
+        }
 
 
         //public ProcessInfoModel(ProcessDiagnosticInfo process)

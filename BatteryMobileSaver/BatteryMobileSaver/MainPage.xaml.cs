@@ -21,6 +21,7 @@ namespace BatteryMobileSaver
 
                 InitializeComponent();
                 
+               
 
                 this.BindingContext = new MainViewModel(
                     CrossDevice.Battery,

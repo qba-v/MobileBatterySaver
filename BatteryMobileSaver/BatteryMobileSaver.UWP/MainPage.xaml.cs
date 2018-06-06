@@ -31,7 +31,7 @@ namespace BatteryMobileSaver.UWP
             //   var list = GetAppInfo();
 
             //list.Result.ToList().ForEach(o => uwpViewModel.AppInfoList.Add(new Models.AppInfoModel(o.AppInfo)));
-            
+           
             LoadApplication(new BatteryMobileSaver.App());
         }
 

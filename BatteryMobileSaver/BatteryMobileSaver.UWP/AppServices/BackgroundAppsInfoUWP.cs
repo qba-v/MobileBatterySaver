@@ -75,7 +75,7 @@ namespace BatteryMobileSaver.UWP.AppServices
             catch (Exception)
             {
 
-                Console.WriteLine("System not suport dll");
+                Console.WriteLine("System not support dll");
             }
             
 
@@ -101,7 +101,7 @@ namespace BatteryMobileSaver.UWP.AppServices
         {
             List<ProcessDiagnosticInfo> processList = ProcessDiagnosticInfo.GetForProcesses().ToList();
             
-            foreach(var process in processList)
+            foreach (var process in processList)
             {
                 BatteryMobileSaver.Models.ProcessInfoModel processInfo = new BatteryMobileSaver.Models.ProcessInfoModel();
 
@@ -114,6 +114,11 @@ namespace BatteryMobileSaver.UWP.AppServices
                 sharedViewModel.ProcessList.Add(processInfo);
             }
 
+            var avm = MemoryManager.ExpectedAppMemoryUsageLimit / 1048576;
+            var tm = MemoryManager.AppMemoryUsage / 1048576;
+
+            sharedViewModel.AvailableMemoryUsage = (long)avm;
+            sharedViewModel.TotalMemoryUsage = (long)tm;
             processList.ForEach(o => uwpNativeViewModel.ProcessList.Add(new ProcessInfoModel(o)));
         }
 

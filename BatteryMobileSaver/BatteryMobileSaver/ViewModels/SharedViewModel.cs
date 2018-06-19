@@ -11,6 +11,8 @@ namespace BatteryMobileSaver.ViewModels
 {
     public  class SharedViewModel : INotifyPropertyChanged
     {
+        public long TotalMemoryUsage { get; set; }
+        public long AvailableMemoryUsage { get; set; }
 
         public SharedViewModel()
         {

@@ -31,9 +31,6 @@
         <NavigationPage Title="Battery Events">
             <x:Arguments>
                 <ContentPage>
-                    <ContentPage.ToolbarItems>
-                        <ToolbarItem Text="Clear list" Command="{Binding ClearBattery}" />
-                    </ContentPage.ToolbarItems>
                     <ContentPage.Content>
                         <ListView ItemsSource="{Binding BatteryEvents}">
                             <ListView.ItemTemplate>
@@ -80,7 +77,6 @@
             <x:Arguments>
                 <ContentPage>
                     <ContentPage.ToolbarItems>
-                        <ToolbarItem Text="{Binding ProcessesCount}"   />
                         <ToolbarItem Text="Try kill processes" Command="{Binding KillProcesses}" />
                     </ContentPage.ToolbarItems>
                     <ContentPage.Content>
@@ -91,6 +87,15 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
+                    </ContentPage.Content>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Memory Chart">
+            <x:Arguments>
+                <ContentPage>
+                    <ContentPage.Content>
+                        <forms:ChartView x:Name="memoryChart" HeightRequest="150"/>
                     </ContentPage.Content>
                 </ContentPage>
             </x:Arguments>

@@ -16,6 +16,8 @@ namespace BatteryMobileSaver.Models
         public ulong WorkingSetSize { get; set; }
         public uint ProcessId { get; set; }
 
+       
+
         public string ResourcesUsage
         {
             get

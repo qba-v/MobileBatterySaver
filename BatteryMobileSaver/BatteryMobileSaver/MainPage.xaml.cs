@@ -16,18 +16,19 @@ namespace BatteryMobileSaver
         {
             try
             {
-                var processes = DependencyService.Get<IBackgroundAppsInfo>().GetBeackgroundProcesses();
+                var appsInfo = DependencyService.Get<IBackgroundAppsInfo>().GetBeackgroundProcesses();
                 
 
                 InitializeComponent();
                 
-               
 
                 this.BindingContext = new MainViewModel(
                     CrossDevice.Battery,
                     CrossDevice.Hardware,
                     batteryChart,
-                    processes
+                    appsInfo,
+                    memoryChart,
+                    this
                     );
                 
             }
@@ -40,7 +41,12 @@ namespace BatteryMobileSaver
         {
             base.OnAppearing();
             ((MainViewModel)this.BindingContext).Start();
+            ((MainViewModel)this.BindingContext).InitMemoryChart();
         }
         
+        public void DisplayMethod(int killedProcesses)
+        {
+            DisplayAlert("Processes killed", killedProcesses.ToString() + " processes were killed.", "OK");
+        }
     }
 }

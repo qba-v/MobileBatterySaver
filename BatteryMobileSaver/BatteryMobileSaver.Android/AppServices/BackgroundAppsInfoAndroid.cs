@@ -29,24 +29,25 @@ namespace BatteryMobileSaver.Droid.AppServices
         public SharedViewModel GetBeackgroundProcesses()
         {
             SharedViewModel sharedViewModel = new SharedViewModel();
-
             ActivityManager Mgr = (ActivityManager)currContext.GetSystemService(Context.ActivityService);
-
+            
             List<RunningAppProcessInfo> list = Mgr.RunningAppProcesses.ToList();
             foreach (var item in list)
             {
+                int[] pId = { item.Pid };
                 sharedViewModel.ProcessList.Add(new Models.ProcessInfoModel
                 {
                     ExeName = item.ProcessName,
+                    MemoryUsage = "Memory usage: " + Mgr.GetProcessMemoryInfo(pId).FirstOrDefault().TotalPss.ToString() + " KB",
                 });
             }
+
+            MemoryInfo info = new MemoryInfo();
+            Mgr.GetMemoryInfo(info);
+            sharedViewModel.AvailableMemoryUsage = info.AvailMem / 0x100000L;
+            sharedViewModel.TotalMemoryUsage = (info.TotalMem / 0x100000L) - (info.AvailMem / 0x100000L);
             sharedViewModel.ProcessesCount = sharedViewModel.ProcessList.Count;
             return sharedViewModel;
-        }
-
-        public Task<SharedViewModel> GetBeackgroundProcesses1()
-        {
-            throw new NotImplementedException();
         }
 
         public SharedViewModel KillAvailableProcesses()
@@ -78,9 +79,11 @@ namespace BatteryMobileSaver.Droid.AppServices
 
             foreach (var item in listTOReturn)
             {
+                int[] pId = { item.Pid };
                 sharedViewModel.ProcessList.Add(new Models.ProcessInfoModel
                 {
                     ExeName = item.ProcessName,
+                    MemoryUsage = "Memory usage: " + Mgr.GetProcessMemoryInfo(pId).FirstOrDefault().TotalPss.ToString() + " KB",
                 });
             }
             sharedViewModel.ProcessesCount = sharedViewModel.ProcessList.Count;
